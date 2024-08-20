@@ -6,8 +6,11 @@ const createUser = z.object({
 	id_card
 })
 
+const updateUser = createUser
+
 const userSchema = {
-	createUser
+	createUser,
+    updateUser
 }
  
 export default userSchema

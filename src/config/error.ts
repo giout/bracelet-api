@@ -8,5 +8,6 @@ export const auth = {
 
 export const user = {
     'U000': 'El nombre de usuario ya existe.',
-    'U001': 'El número de identificación ya existe.'
+    'U001': 'El número de identificación ya existe.',
+    'U002': 'El usuario no existe.'
 }

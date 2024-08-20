@@ -7,14 +7,24 @@ const getAll = async (page: number, limit: number) => {
     return users
 }
 
-const create = async (username: number, id_card: number) => {
+const create = async (username: string, id_card: number) => {
     const user = await db.oneOrNone(userQuery.create, { username, id_card })
     return user
 }
 
+const update = async (user: string, username: string, id_card: number) => {
+    await db.oneOrNone(userQuery.update, { user, username, id_card })
+}
+
+const delete_ = async (user: string) => {
+    await db.oneOrNone(userQuery.delete, { user })
+}
+
 const userService = {
     getAll,
-    create
+    create,
+    update,
+    delete_
 }
 
 export default userService

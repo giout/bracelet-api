@@ -26,3 +26,12 @@ export const id_card = z
     invalid_type_error: "El número de identificación debe ser un número."
   })
   .int('El número de identificación debe ser un número entero.')
+
+export const idParam = z.string({
+  required_error: "El parámetro id es requerido.",
+  invalid_type_error: "El parámetro id debe ser una cadena de texto.",
+})
+.regex(
+  /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$/,
+  "El parámetro id debe tener un formato UUID."
+);

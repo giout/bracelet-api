@@ -5,6 +5,7 @@ import { auth, user } from "../config/error"
 const errorObject: any = { ...auth, ...user }
 
 export const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
+    console.log(err)
     if (err instanceof CustomError) 
         return res.status(err.statusCode).json({ 
             message: errorObject[err.message] ? errorObject[err.message] : err.message,
@@ -17,5 +18,5 @@ export const errorHandler = (err: any, req: Request, res: Response, next: NextFu
             code: 400
         })
     
-        return res.status(500).json({ message: err.message, code: 500 })
+    return res.status(500).json({ message: err.message, code: 500 })
 }
