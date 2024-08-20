@@ -1,9 +1,13 @@
 import { Router } from 'express'
+import userController from '../controllers/user'
+import { authentication } from '../middlewares/auth'
 
 const router = Router()
 
+router.use(authentication)
+
 router.route('/')
-    .get()
+    .get(userController.getAll)
     .post()
 
 router.route('/:id')
