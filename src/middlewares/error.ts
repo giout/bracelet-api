@@ -1,5 +1,8 @@
 import { NextFunction, Request, Response } from "express"
 import { CustomError } from '../utils/error'
+import { admin } from "../config/error"
+
+const errorObject: any = { ...admin }
 
 export const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
     if (err instanceof CustomError) 
@@ -8,5 +11,11 @@ export const errorHandler = (err: any, req: Request, res: Response, next: NextFu
             code: err.statusCode
         })
     
-    return res.status(500).json({ message: err.message, code: 500 })
+    if (err.code === 'P0001')
+        return res.status(400).json({
+            message: errorObject[err.message],
+            code: 400
+        })
+    
+        return res.status(500).json({ message: err.message, code: 500 })
 }
