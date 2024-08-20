@@ -6,5 +6,6 @@ export const auth = {
 } 
 
 export const user = {
-    getAll: getQuery('user/get-all.sql')
+    getAll: getQuery('user/get-all.sql'),
+    create: getQuery('user/create.sql')
 }

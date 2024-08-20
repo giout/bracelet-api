@@ -8,7 +8,7 @@ router.use(authentication)
 
 router.route('/')
     .get(userController.getAll)
-    .post()
+    .post(userController.create)
 
 router.route('/:id')
     .put()

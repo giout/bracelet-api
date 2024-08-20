@@ -17,8 +17,19 @@ const getAll = catchAsync( async (req: Request, res: Response, next: NextFunctio
     })
 })
 
+const create = catchAsync( async (req: Request, res: Response, next: NextFunction) => {
+    const user = await userService.create(req.body.username, req.body.id_card)
+
+    res.status(201).json({
+        message: 'ok',
+        code: 201,
+        data: user
+    })
+})
+
 const userController = {
-    getAll
+    getAll,
+    create
 }
 
 export default userController

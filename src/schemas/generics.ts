@@ -19,3 +19,10 @@ export const password = z
     /^(?=.*[A-Z])(?=.*\d).+/,
     "La contraseña debe contener al menos una letra mayúscula y un número."
 );
+
+export const id_card = z 
+  .number({
+    required_error: "El número de identificación es requerido.",
+    invalid_type_error: "El número de identificación debe ser un número."
+  })
+  .int('El número de identificación debe ser un número entero.')
