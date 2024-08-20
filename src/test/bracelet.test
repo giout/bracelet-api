@@ -1,0 +1,53 @@
+describe('Get all bracelets', () => {
+    test('Respond with 200', () => {
+
+    })
+    test('Return a JSON', () => {
+        
+    })
+    test('Return an array', () => {
+
+    })
+    test('Return bracelet properties', () => {
+
+    })
+})
+
+describe('Create bracelet', () => {
+    test('Respond with 201', () => {
+
+    })
+    test('Return a JSON', () => {
+        
+    })
+    test('Bracelet exists in database', () => {
+
+    })
+})
+
+describe('Delete bracelet', () => {
+    test('Respond with 200', () => {
+
+    })
+    test('Return a JSON', () => {
+        
+    })
+    test('Bracelet is removed from database', () => {
+        
+    })
+})
+
+describe('Get bracelet assignments', () => {
+    test('Respond with 200', () => {
+
+    })
+    test('Return a JSON', () => {
+        
+    })
+    test('Return an array', () => {
+        
+    })
+    test('Return assignment properties', () => {
+
+    })
+})

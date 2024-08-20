@@ -1,0 +1,23 @@
+describe('Sign up', () => {
+    test('Respond with 201', () => {
+
+    })
+    test('Return a JSON', () => {
+        
+    })
+    test('Admin user is created in database', () => {
+
+    })
+})
+
+describe('Log in', () => {
+    test('Respond with 201', () => {
+
+    })
+    test('Return a JSON', () => {
+        
+    })
+    test('Return a valid token', () => {
+
+    })
+})
