@@ -11,6 +11,9 @@ router.post(
     authController.signUp
 )
 
-router.post('/login')
+router.post(
+    '/login', 
+    authController.logIn
+)
 
 export default router

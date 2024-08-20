@@ -1,13 +1,13 @@
 import { NextFunction, Request, Response } from "express"
 import { CustomError } from '../utils/error'
-import { admin } from "../config/error"
+import { auth } from "../config/error"
 
-const errorObject: any = { ...admin }
+const errorObject: any = { ...auth }
 
 export const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
     if (err instanceof CustomError) 
         return res.status(err.statusCode).json({ 
-            message: err.message,
+            message: errorObject[err.message] ? errorObject[err.message] : err.message,
             code: err.statusCode
         })
     
