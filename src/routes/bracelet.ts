@@ -5,7 +5,7 @@ const router = Router()
 
 router.route('/')
     .get(braceletController.getAll)
-    .post()
+    .post(braceletController.create)
 
 router.delete('/:id')
 

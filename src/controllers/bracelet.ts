@@ -17,8 +17,19 @@ const getAll = catchAsync( async (req: Request, res: Response, next: NextFunctio
     })
 })
 
+const create = catchAsync( async (req: Request, res: Response, next: NextFunction) => {
+    const bracelet = await braceletService.create()
+
+    res.status(201).json({
+        message: 'ok',
+        code: 201,
+        data: bracelet
+    })
+})
+
 const braceletController = {
-    getAll
+    getAll,
+    create
 }
 
 export default braceletController
