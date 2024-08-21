@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import braceletController from '../controllers/bracelet'
 import validate from '../middlewares/validation'
-import { integerParam } from '../schemas/generics'
+import { integerParam, uuidParam } from '../schemas/generics'
 import { authentication } from '../middlewares/auth'
 
 const router = Router()
@@ -18,6 +18,10 @@ router.delete(
     braceletController.delete_
 )
 
-router.get('/:id/assignment')
+router.get(
+    '/:id/assignment',
+    validate('id', integerParam),
+    braceletController.getAssignments
+)
 
 export default router

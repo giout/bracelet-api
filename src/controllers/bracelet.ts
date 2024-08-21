@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { catchAsync } from "../utils/error";
 import braceletService from "../services/bracelet";
+import assignmentHistoryService from "../services/assignmentHistory";
 
 const getAll = catchAsync( async (req: Request, res: Response, next: NextFunction) => {
     const page = Number.isInteger(Number(req.query.page)) ? req.query.page : 1
@@ -36,10 +37,23 @@ const delete_ = catchAsync( async (req: Request, res: Response, next: NextFuncti
     })
 })
 
+const getAssignments = catchAsync( async (req: Request, res: Response, next: NextFunction) => {
+    const assignments = await assignmentHistoryService.getByBracelet(
+        Number(req.params.id)
+    )
+
+    res.status(200).json({
+        message: 'ok',
+        code: 200,
+        data: assignments
+    })
+})
+
 const braceletController = {
     getAll,
     create,
-    delete_
+    delete_,
+    getAssignments
 }
 
 export default braceletController

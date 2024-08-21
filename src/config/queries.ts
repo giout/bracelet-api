@@ -22,3 +22,7 @@ export const assignment = {
     create: getQuery('assignment/create.sql'),
     delete: getQuery('assignment/delete.sql')
 }
+
+export const assignmentHistory = {
+    getByBracelet: getQuery('assignment_history/get-by-bracelet.sql')
+}
