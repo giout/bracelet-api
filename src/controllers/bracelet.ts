@@ -38,14 +38,21 @@ const delete_ = catchAsync( async (req: Request, res: Response, next: NextFuncti
 })
 
 const getAssignments = catchAsync( async (req: Request, res: Response, next: NextFunction) => {
+    const page = Number.isInteger(Number(req.query.page)) ? req.query.page : 1
+    const limit = Number.isInteger(Number(req.query.limit)) ? req.query.limit : 10
+
     const assignments = await assignmentHistoryService.getByBracelet(
-        Number(req.params.id)
+        Number(req.params.id),
+        <number> page, 
+        <number> limit
     )
 
     res.status(200).json({
         message: 'ok',
         code: 200,
-        data: assignments
+        data: assignments,
+        page: Number(page),
+        limit: Number(limit)
     })
 })
 
