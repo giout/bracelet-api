@@ -11,3 +11,7 @@ export const user = {
     update: getQuery('user/update.sql'),
     delete: getQuery('user/delete.sql')
 }
+
+export const bracelet = {
+    getAll: getQuery('bracelet/get-all.sql'),
+}

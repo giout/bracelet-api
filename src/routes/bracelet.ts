@@ -1,9 +1,10 @@
 import { Router } from 'express'
+import braceletController from '../controllers/bracelet'
 
 const router = Router()
 
 router.route('/')
-    .get()
+    .get(braceletController.getAll)
     .post()
 
 router.delete('/:id')
