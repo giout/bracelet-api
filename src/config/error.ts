@@ -15,3 +15,7 @@ export const user = {
 export const bracelet = {
     'B000': 'El brazalete no existe.'
 }
+
+export const assignment = {
+    'AS000': 'La asignación no existe.'
+}

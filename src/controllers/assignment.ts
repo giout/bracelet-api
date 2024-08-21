@@ -16,8 +16,18 @@ const create = catchAsync( async (req: Request, res: Response, next: NextFunctio
     })
 })
 
+const delete_ = catchAsync( async (req: Request, res: Response, next: NextFunction) => {
+    await assignmentService.delete_(req.params.id)
+
+    res.status(200).json({
+        message: 'ok',
+        code: 200
+    })
+})
+
 const assignmentController = {
-    create
+    create,
+    delete_
 }
 
 export default assignmentController

@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express"
 import { CustomError } from '../utils/error'
-import { auth, user, bracelet } from "../config/error"
+import { auth, user, bracelet, assignment } from "../config/error"
 
-const errorObject: any = { ...auth, ...user, ...bracelet }
+const errorObject: any = { ...auth, ...user, ...bracelet, ...assignment }
 
 export const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
     console.log(err)

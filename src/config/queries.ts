@@ -19,5 +19,6 @@ export const bracelet = {
 }
 
 export const assignment = {
-    create: getQuery('assignment/create.sql')
+    create: getQuery('assignment/create.sql'),
+    delete: getQuery('assignment/delete.sql')
 }

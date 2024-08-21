@@ -10,8 +10,13 @@ const create = async (user: string, bracelet: number, time: number) => {
     return assignment
 }
 
+const delete_ = async (assignment: string) => {
+    await db.oneOrNone(assignmentQuery.delete, { assignment })  
+}
+
 const assignmentService = {
-    create
+    create,
+    delete_
 }
 
 export default assignmentService
