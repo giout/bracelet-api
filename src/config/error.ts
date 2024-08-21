@@ -11,3 +11,7 @@ export const user = {
     'U001': 'El número de identificación ya existe.',
     'U002': 'El usuario no existe.'
 }
+
+export const bracelet = {
+    'B000': 'El brazalete no existe.'
+}

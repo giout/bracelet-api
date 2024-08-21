@@ -14,5 +14,6 @@ export const user = {
 
 export const bracelet = {
     getAll: getQuery('bracelet/get-all.sql'),
-    create: getQuery('bracelet/create.sql')
+    create: getQuery('bracelet/create.sql'),
+    delete: getQuery('bracelet/delete.sql')
 }

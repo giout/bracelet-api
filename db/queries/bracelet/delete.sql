@@ -1,0 +1,1 @@
+SELECT delete_bracelet($(bracelet)::integer);

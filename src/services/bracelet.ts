@@ -11,9 +11,14 @@ const create = async () => {
     return bracelet
 }
 
+const delete_ = async (bracelet: number) => {
+    await db.oneOrNone(braceletQuery.delete, { bracelet })
+}
+
 const braceletService = {
     getAll,
-    create
+    create,
+    delete_
 }
 
 export default braceletService
