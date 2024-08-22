@@ -5,7 +5,7 @@ import assignmentHistoryService from "../services/assignmentHistory"
 
 const create = catchAsync( async (req: Request, res: Response, next: NextFunction) => {
     const bracelet = await assignmentService.create(
-        req.body.user,
+        req.body.id_card,
         req.body.bracelet,
         req.body.time
     )

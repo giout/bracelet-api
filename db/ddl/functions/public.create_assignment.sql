@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION create_assignment (
-    prm_user uuid,
+    prm_id_card integer,
     prm_bracelet integer,
     prm_time integer
 )
@@ -8,23 +8,23 @@ RETURNS TABLE (
     "user" uuid,
     bracelet integer,
     "time" integer,
-    "assignment_date" timestamp without time zone
+    assignment_date timestamp without time zone
 )
 AS 
 $$
 DECLARE
-    user_count integer;
+    user_row "user"%ROWTYPE;
     bracelet_count integer;
 BEGIN
     -- verify if user exists
     SELECT 
-        count(*) INTO user_count
+        * INTO user_row
     FROM
         "user" u
     WHERE 
-        u.user = prm_user;
-    IF user_count = 0 THEN
-        RAISE EXCEPTION 'U002';
+        u.id_card = prm_id_card;
+    IF NOT FOUND THEN
+        RAISE EXCEPTION 'U004';
     END IF;
 
     -- verify if bracelet exists
@@ -44,7 +44,7 @@ BEGIN
         bracelet,
         "time"
     ) VALUES (
-        prm_user,
+        user_row."user",
         prm_bracelet,
         prm_time
     ) RETURNING

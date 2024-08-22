@@ -1,5 +1,5 @@
 SELECT * FROM create_assignment(
-    $(user)::uuid,
+    $(id_card)::integer,
     $(bracelet)::integer,
     $(time)::integer
 );
