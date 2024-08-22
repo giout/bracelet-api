@@ -10,8 +10,17 @@ const getByBracelet = async (bracelet: number, page: number, limit: number) => {
     return assignments
 }
 
+const getAll = async (page: number, limit: number) => {
+    const assignments = await db.any(assignmentHistory.getAll, {
+        page,
+        limit
+    })
+    return assignments
+}
+
 const assignmentHistoryService = {
-    getByBracelet
+    getByBracelet, 
+    getAll
 }
 
 export default assignmentHistoryService

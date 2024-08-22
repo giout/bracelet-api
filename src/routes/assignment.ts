@@ -9,11 +9,14 @@ const router = Router()
 
 router.use(authentication)
 
-router.post(
-    '/',
-    validate('body', assignmentSchema.create),
-    assignmentController.create
-)
+router.route('/')
+    .get(
+        assignmentController.getAll
+    )
+    .post(
+        validate('body', assignmentSchema.create),
+        assignmentController.create
+    )
 
 router.delete(
     '/:id',
