@@ -2,8 +2,8 @@ import { db } from "../config/db"
 import { user as userQuery } from "../config/queries"
 import { CustomError } from "../utils/error"
 
-const getAll = async (page: number, limit: number) => {
-    const users = await db.any(userQuery.getAll, { page, limit })
+const getAll = async () => {
+    const users = await db.any(userQuery.getAll, {})
     return users
 }
 
