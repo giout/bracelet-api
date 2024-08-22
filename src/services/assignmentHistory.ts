@@ -18,9 +18,15 @@ const getAll = async (page: number, limit: number) => {
     return assignments
 }
 
+const getCount = async () => {
+    const { items } = await db.one(assignmentHistory.count, {})
+    return items
+}
+
 const assignmentHistoryService = {
     getByBracelet, 
-    getAll
+    getAll,
+    getCount
 }
 
 export default assignmentHistoryService

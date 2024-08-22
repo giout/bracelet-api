@@ -35,12 +35,15 @@ const getAll = catchAsync( async (req: Request, res: Response, next: NextFunctio
         <number> limit
     )
 
+    const items = await assignmentHistoryService.getCount()
+
     res.status(200).json({
         message: 'ok',
         code: 200,
         data: assignments,
         page: Number(page),
-        limit: Number(limit)
+        limit: Number(limit),
+        items: Number(items)
     })
 })
 

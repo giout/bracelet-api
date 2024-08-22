@@ -25,5 +25,6 @@ export const assignment = {
 
 export const assignmentHistory = {
     getByBracelet: getQuery('assignment_history/get-by-bracelet.sql'),
-    getAll: getQuery('assignment_history/get-all.sql')
+    getAll: getQuery('assignment_history/get-all.sql'),
+    count: getQuery('assignment_history/count.sql')
 }
