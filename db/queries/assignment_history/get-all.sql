@@ -8,5 +8,6 @@ INNER JOIN
     "user" u
 ON 
     a."user"=a."user"
+ORDER BY a."date" DESC
 LIMIT $(limit)::integer
 OFFSET ($(limit)::integer*$(page)::integer) - $(limit)::integer;
