@@ -8,9 +8,9 @@ CREATE TABLE assignment (
 
 ALTER TABLE assignment ADD CONSTRAINT pk_assignment PRIMARY KEY (assignment);
 
-ALTER TABLE assignment ADD CONSTRAINT fk_assignment_user FOREIGN KEY ("user") REFERENCES "user" ("user");
+ALTER TABLE assignment ADD CONSTRAINT fk_assignment_user FOREIGN KEY ("user") REFERENCES "user" ("user") ON DELETE CASCADE; 
 
-ALTER TABLE assignment ADD CONSTRAINT fk_assignment_bracelet FOREIGN KEY (bracelet) REFERENCES bracelet (bracelet);
+ALTER TABLE assignment ADD CONSTRAINT fk_assignment_bracelet FOREIGN KEY (bracelet) REFERENCES bracelet (bracelet) ON DELETE CASCADE;
 
 CREATE TRIGGER trg_create_assignment
 	AFTER INSERT ON assignment
